@@ -1,0 +1,9 @@
+[Unit]
+Description=Jellyfin
+After=network.target
+
+[Container]
+Image=docker.io/jellyfin/jellyfin:latest
+
+[Install]
+WantedBy=multi-user.target

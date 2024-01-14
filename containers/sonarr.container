@@ -1,0 +1,17 @@
+[Unit]
+Description=Sonarr
+After=network.target
+
+[Container]
+Image=ghcr.io/hotio/sonarr:nightly
+PublishPort=8989
+Pull=newer
+Volume=/var/lib/sonarr:/config
+
+[Service]
+Restart=always
+Group=media
+ExecStartPre=mkdir -m 755 -p /var/lib/sonarr 
+
+[Install]
+WantedBy=multi-user.target

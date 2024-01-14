@@ -1,0 +1,16 @@
+[Unit]
+Description=Organizr
+After=network.target
+
+[Container]
+Image=docker.io/organizr/organizr:latest
+PublishPort=9090:80
+Pull=newer
+Volume=/var/lib/organizr:/config
+
+[Service]
+Restart=always
+ExecStartPre=mkdir -m 755 -p /var/lib/organizr
+
+[Install]
+WantedBy=multi-user.target

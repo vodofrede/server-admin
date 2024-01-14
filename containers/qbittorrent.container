@@ -14,7 +14,7 @@ Group=998
 [Service]
 Restart=always
 Group=media
-ExecStartPre=mkdir -m 755 -p /var/local/lib/radarr
+ExecStartPre=mkdir -m 755 -p /var/local/lib/qbittorrent
 
 [Install]
 WantedBy=multi-user.target

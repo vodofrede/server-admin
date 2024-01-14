@@ -1,0 +1,17 @@
+[Unit]
+Description=Bazarr
+After=network.target
+
+[Container]
+Image=ghcr.io/hotio/bazarr:latest
+PublishPort=9696
+Pull=newer
+Volume=/var/lib/bazarr:/config
+
+[Service]
+Restart=always
+Group=media
+ExecStartPre=mkdir -m 755 -p /var/lib/bazarr
+
+[Install]
+WantedBy=multi-user.target

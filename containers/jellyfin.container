@@ -4,6 +4,15 @@ After=network.target
 
 [Container]
 Image=docker.io/jellyfin/jellyfin:latest
+PublishPort=8096
+Pull=newer
+Volume=/var/lib/jellyfin/config:/config
+Volume=/var/cache/jellyfin:/cache
+
+[Service]
+Restart=always
+Group=media
+ExecStartPre=mkdir -m 755 -p /var/lib/jellyfin ; mkdir -m 755 -p /var/cache/jellyfin
 
 [Install]
 WantedBy=multi-user.target

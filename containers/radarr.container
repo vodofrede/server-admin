@@ -1,0 +1,17 @@
+[Unit]
+Description=Radarr
+After=network.target
+
+[Container]
+Image=ghcr.io/hotio/radarr:latest
+PublishPort=7878
+Pull=newer
+Volume=/var/local/lib/radarr:/config
+
+[Service]
+Restart=always
+Group=media
+ExecStartPre=mkdir -m 755 -p /var/local/lib/radarr
+
+[Install]
+WantedBy=multi-user.target

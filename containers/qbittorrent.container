@@ -1,0 +1,20 @@
+[Unit]
+Description=qBittorrent
+After=network.target
+
+[Container]
+Image=lscr.io/linuxserver/qbittorrent:latest
+PublishPort=8080:8080
+PublishPort=6881:6881
+Pull=newer
+Volume=/var/local/lib/qbittorrent:/config
+Volume=/ext/media/downloads:/downloads
+Group=998
+
+[Service]
+Restart=always
+Group=media
+ExecStartPre=mkdir -m 755 -p /var/local/lib/radarr
+
+[Install]
+WantedBy=multi-user.target

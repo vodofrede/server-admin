@@ -8,6 +8,7 @@ PublishPort=7878:7878
 Pull=newer
 Volume=/var/local/lib/radarr:/config
 Volume=/ext/media:/ext/media:rw
+Volume=/ext/media/downloads:/downloads
 Group=998
 
 [Service]

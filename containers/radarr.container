@@ -4,9 +4,11 @@ After=network.target
 
 [Container]
 Image=ghcr.io/hotio/radarr:latest
-PublishPort=7878
+PublishPort=7878:7878
 Pull=newer
 Volume=/var/local/lib/radarr:/config
+Volume=/ext/media:/ext/media:rw
+Group=998
 
 [Service]
 Restart=always
